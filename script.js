@@ -9,22 +9,6 @@ function navClick(i) {
     });
 }
 
-// Menambahkan smooth scroll saat navigasi
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        // Ambil id target dan scroll ke posisi tersebut
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        window.scrollTo({
-            top: targetElement.offsetTop,
-            behavior: 'smooth'  // Menambahkan smooth scroll
-        });
-    });
-});
-
 // Menyembunyikan atau menampilkan navigasi berdasarkan scroll
 let lastScrollTop = 0;
 const navWrapper = document.querySelector(".nav-wrapper");
@@ -57,6 +41,22 @@ document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
 
+// Menambahkan smooth scroll saat navigasi
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        // Ambil id target dan scroll ke posisi tersebut
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'  // Menambahkan smooth scroll
+        });
+    });
+});
+
 // Menyembunyikan atau menampilkan navigasi berdasarkan scroll
 window.addEventListener("scroll", function () {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;
@@ -68,6 +68,21 @@ window.addEventListener("scroll", function () {
             document.querySelector(".nav-wrapper>nav").classList.remove("naik");
         }, 350);
         isNavVisible = true;
+        // Menambahkan smooth scroll saat navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Ambil id target dan scroll ke posisi tersebut
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop,
+                    behavior: 'smooth'  // Menambahkan smooth scroll
+                });
+            });
+        });
     } else if (currentScroll < lastScrollTop && currentScroll < 200) {
         document.querySelector(".nav-wrapper>nav").classList.add("turun");
         setTimeout(() => {
