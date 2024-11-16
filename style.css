@@ -68,7 +68,7 @@ main > section {
 main > section:nth-child(1) {
     height: 100vh;
 }
-#home > .wave-bg {
+.wave-bg {
     transform: rotate(180deg);
     position: absolute;
     bottom: -1px;
@@ -80,6 +80,11 @@ main > section:nth-child(1) {
     background-color: #f54b4b;
     color: #fae9ef;
     padding: 20px;
+    height: fit-content;
+}
+
+#benefits {
+    color: #f54b4b;
     height: fit-content;
 }
 
@@ -212,7 +217,63 @@ nav.real > ul > li > a > div > .dot {
     flex-direction: row-reverse;
 }
 
+#benefits > .wave-bg {
+    width: 300px;
+    height: auto;
+}
+#benefits > .content {
+    padding: 40px 20px;
+}
+#benefits > .content > h2 {
+    text-align: end;
+    margin-bottom: 20px;
+}
+.icon {
+    padding: 10px;
+    background-color: #f54b4b;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -35px;
+}
+.icon > * {
+    width: 50px;
+    height: 50px;
+}
+#benefits > .content > ul {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+#benefits > .content > ul > li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 150px;
+    padding: 20px;
+    background-color: #fefefe;
+    border-radius: 10px;
+}
+#benefits > .content > ul > li > .text {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
 @media (max-width: 699px) {
+    #benefits > .content > ul > li {
+        width: calc(100vw - 40px) !important;
+        flex-basis: unset;
+    }
     #about > ul > li > img {
         max-width: 150px;
     }
@@ -238,7 +299,7 @@ nav.real > ul > li > a > div > .dot {
     header > nav > ul {
         display: none;
     }
-    #home > .wave-bg {
+    .wave-bg {
         height: 100vh;
     }
 }
